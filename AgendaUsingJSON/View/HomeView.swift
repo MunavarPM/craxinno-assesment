@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
+    @StateObject var viewModel = DataViewModel()
     var body: some View {
         NavigationStack {
             ZStack {
@@ -15,11 +17,10 @@ struct HomeView: View {
                 VStack(spacing: 10) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 0) {
-                            ForEach(0 ..< 5) { _ in
+                            ForEach(0 ..< 1) { _ in
                                 HStack(spacing: 0) {
-                                    Text("TUE,")
-                                    Text("NOV")
-                                    Text("01")
+                                    Text(formateDate((viewModel.agendas?.data[0].start_date) ?? "").formatDate(.EEEddMMM))
+                                    Text(formateDate((viewModel.agendas?.data[0].end_date) ?? "").formatDate(.EEEddMMM))
                                 }
                             }
                             .padding(.horizontal, 13)
@@ -28,9 +29,12 @@ struct HomeView: View {
                     }
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 10) {
-                            ForEach(0 ..< 5){ _ in
-                                MeetListView()
-                                    .frame(height: 185)
+                            
+                            ForEach(0 ..< 10) { i in
+                                VStack(alignment: .leading) {
+                                    MeetListView(index: i)
+                                        .frame(height: 185)
+                                }
                             }
                         }
                     }
@@ -50,7 +54,15 @@ struct HomeView: View {
                     }
                 }
             }
+            .onAppear {
+                // viewModel.length
+                //viewModel.postData()
+            }
         }
+    }
+    private func formateDate(_ dateString: String) -> Date {
+       return dateString.convertUTCStringToDate(.utcFormat)
+        
     }
 }
 
@@ -60,19 +72,21 @@ struct HomeView: View {
 
 struct MeetListView: View {
     @State private var contentIsLong = false
+    @StateObject var viewModel = DataViewModel()
+    let index: Int
     var body: some View {
         NavigationLink(destination: MeetView()){
             GeometryReader { geo in
-                VStack {
+                VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        Text("Northwest Florid Reception Sponsored by Beggs & Lane RLLP")
+                        Text(viewModel.agendas?.data[index].name ?? "")
                             .font(.custom("Poppins-Medium", size: 20))
                             .fontWeight(.semibold)
                             .lineLimit(contentIsLong ? 1 : 3)
                             .multilineTextAlignment(.leading)
-                            .padding(.horizontal, 32)
+                            .padding(.horizontal, 42)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .frame(width: UIScreen.main.bounds.width , height: calculateTextHeight(category: "Category B", text: "Northwest Florid Reception Sponsored by Beggs & Lane RLLP", for: geo.size.width))
-                            .offset(x: 18)
                         Spacer()
                     }
                     HStack {
@@ -80,7 +94,13 @@ struct MeetListView: View {
                             Text("12:34 PM")
                                 .foregroundColor(.gray)
                             
-                            ImageCircleView()
+                            if let imageUrl = viewModel.agendas?.data.first?.attendees.first?.image {
+                                ImageCircleView(imageURLs: [imageUrl])
+                            }
+                            
+                            
+                            
+                            
                         }
                         .padding(.leading, 45)
                         Spacer()
@@ -89,8 +109,8 @@ struct MeetListView: View {
                 }
                 .onAppear {
                     let halfScreenWidth = UIScreen.main.bounds.width / 2
-                       contentIsLong = calculateTextHeight(category: "Category B", text: "Northwest Florid Reception Sponsored by Beggs & Lane RLLP", for: geo.size.width) > halfScreenWidth
-                   }
+                    contentIsLong = calculateTextHeight(category: "Category B", text: "Northwest Florid Reception Sponsored by Beggs & Lane RLLP", for: geo.size.width) > halfScreenWidth
+                }
                 .background(CustomCardShape().fill(Color.white).overlay(CustomCardShape().stroke(Color.gray, lineWidth: 0.8)))
                 .clipShape(CustomCardShape())
                 .offset(x: 7)
@@ -121,10 +141,12 @@ struct MeetListView: View {
 
 
 struct ImageCircleView: View {
+    var imageURLs: [String]
+    
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(0 ..< 6) { _ in
-                Image("DP")
+        HStack(spacing: 10) {
+            ForEach(imageURLs, id: \.self) { url in
+                WebImage(url: URL(string: url))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
@@ -133,3 +155,4 @@ struct ImageCircleView: View {
         }
     }
 }
+

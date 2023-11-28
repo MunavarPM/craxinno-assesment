@@ -7,18 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB02E43A2B14DA4B007C242D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02E4392B14DA4B007C242D /* ViewModel.swift */; };
 		DB2E5DCA2B148B0800CC7945 /* AgendaUsingJSONApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E5DC92B148B0800CC7945 /* AgendaUsingJSONApp.swift */; };
 		DB2E5DCC2B148B0800CC7945 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E5DCB2B148B0800CC7945 /* ContentView.swift */; };
 		DB2E5DCE2B148B0B00CC7945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2E5DCD2B148B0B00CC7945 /* Assets.xcassets */; };
 		DB2E5DD12B148B0B00CC7945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2E5DD02B148B0B00CC7945 /* Preview Assets.xcassets */; };
+		DB2E5DD82B148B7A00CC7945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E5DD72B148B7A00CC7945 /* HomeView.swift */; };
+		DB2E5DDA2B14918100CC7945 /* CustomCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E5DD92B14918100CC7945 /* CustomCardShape.swift */; };
+		DB2E5DDD2B14ACFD00CC7945 /* MeetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E5DDC2B14ACFD00CC7945 /* MeetView.swift */; };
+		DB5BC5E02B15C09900B653D8 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BC5DF2B15C09900B653D8 /* PostData.swift */; };
+		DB91165D2B152940005B6ABD /* Agenda_speakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91165B2B152940005B6ABD /* Agenda_speakers.swift */; };
+		DB91165E2B152940005B6ABD /* Agenda_documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91165A2B152940005B6ABD /* Agenda_documents.swift */; };
+		DB91165F2B152940005B6ABD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9116592B152940005B6ABD /* Data.swift */; };
+		DB9116602B152940005B6ABD /* AgendaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9116582B152940005B6ABD /* AgendaResponse.swift */; };
+		DB9116612B152940005B6ABD /* Register_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91165C2B152940005B6ABD /* Register_links.swift */; };
+		DB9116632B153097005B6ABD /* MeetRevambView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9116622B153097005B6ABD /* MeetRevambView.swift */; };
+		DB9116662B1537FB005B6ABD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DB9116652B1537FB005B6ABD /* SDWebImageSwiftUI */; };
+		DBF860CF2B14C0390094785A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBF860CE2B14C0390094785A /* Poppins-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB02E4392B14DA4B007C242D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		DB2E5DC62B148B0800CC7945 /* AgendaUsingJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaUsingJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2E5DC92B148B0800CC7945 /* AgendaUsingJSONApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaUsingJSONApp.swift; sourceTree = "<group>"; };
 		DB2E5DCB2B148B0800CC7945 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB2E5DCD2B148B0B00CC7945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB2E5DD02B148B0B00CC7945 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DB2E5DD72B148B7A00CC7945 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DB2E5DD92B14918100CC7945 /* CustomCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCardShape.swift; sourceTree = "<group>"; };
+		DB2E5DDC2B14ACFD00CC7945 /* MeetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetView.swift; sourceTree = "<group>"; };
+		DB5BC5DF2B15C09900B653D8 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		DB9116582B152940005B6ABD /* AgendaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaResponse.swift; sourceTree = "<group>"; };
+		DB9116592B152940005B6ABD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		DB91165A2B152940005B6ABD /* Agenda_documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda_documents.swift; sourceTree = "<group>"; };
+		DB91165B2B152940005B6ABD /* Agenda_speakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda_speakers.swift; sourceTree = "<group>"; };
+		DB91165C2B152940005B6ABD /* Register_links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register_links.swift; sourceTree = "<group>"; };
+		DB9116622B153097005B6ABD /* MeetRevambView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetRevambView.swift; sourceTree = "<group>"; };
+		DBF860CD2B14BF960094785A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DBF860CE2B14C0390094785A /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +52,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9116662B1537FB005B6ABD /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB02E4342B14D7B4007C242D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB2E5DCB2B148B0800CC7945 /* ContentView.swift */,
+				DB2E5DD72B148B7A00CC7945 /* HomeView.swift */,
+				DB2E5DDC2B14ACFD00CC7945 /* MeetView.swift */,
+				DB9116622B153097005B6ABD /* MeetRevambView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB02E4362B14D7D2007C242D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB02E4392B14DA4B007C242D /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DB2E5DBD2B148B0800CC7945 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				DB2E5DC92B148B0800CC7945 /* AgendaUsingJSONApp.swift */,
-				DB2E5DCB2B148B0800CC7945 /* ContentView.swift */,
+				DB02E4362B14D7D2007C242D /* ViewModel */,
+				DB02E4342B14D7B4007C242D /* View */,
+				DB9116552B1528C1005B6ABD /* JSON */,
+				DBF860CD2B14BF960094785A /* Info.plist */,
+				DB2E5DDB2B14919300CC7945 /* Helper's */,
 				DB2E5DCD2B148B0B00CC7945 /* Assets.xcassets */,
 				DB2E5DCF2B148B0B00CC7945 /* Preview Content */,
 			);
@@ -65,6 +115,36 @@
 				DB2E5DD02B148B0B00CC7945 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB2E5DDB2B14919300CC7945 /* Helper's */ = {
+			isa = PBXGroup;
+			children = (
+				DBF860CA2B14BED10094785A /* Font */,
+				DB2E5DD92B14918100CC7945 /* CustomCardShape.swift */,
+			);
+			path = "Helper's";
+			sourceTree = "<group>";
+		};
+		DB9116552B1528C1005B6ABD /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DB91165A2B152940005B6ABD /* Agenda_documents.swift */,
+				DB5BC5DF2B15C09900B653D8 /* PostData.swift */,
+				DB91165B2B152940005B6ABD /* Agenda_speakers.swift */,
+				DB9116582B152940005B6ABD /* AgendaResponse.swift */,
+				DB9116592B152940005B6ABD /* Data.swift */,
+				DB91165C2B152940005B6ABD /* Register_links.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		DBF860CA2B14BED10094785A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DBF860CE2B14C0390094785A /* Poppins-Medium.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +163,9 @@
 			dependencies = (
 			);
 			name = AgendaUsingJSON;
+			packageProductDependencies = (
+				DB9116652B1537FB005B6ABD /* SDWebImageSwiftUI */,
+			);
 			productName = AgendaUsingJSON;
 			productReference = DB2E5DC62B148B0800CC7945 /* AgendaUsingJSON.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +194,9 @@
 				Base,
 			);
 			mainGroup = DB2E5DBD2B148B0800CC7945;
+			packageReferences = (
+				DB9116642B1537FB005B6ABD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = DB2E5DC72B148B0800CC7945 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2E5DD12B148B0B00CC7945 /* Preview Assets.xcassets in Resources */,
+				DBF860CF2B14C0390094785A /* Poppins-Medium.ttf in Resources */,
 				DB2E5DCE2B148B0B00CC7945 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +224,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9116632B153097005B6ABD /* MeetRevambView.swift in Sources */,
+				DB2E5DD82B148B7A00CC7945 /* HomeView.swift in Sources */,
+				DB91165F2B152940005B6ABD /* Data.swift in Sources */,
+				DB9116602B152940005B6ABD /* AgendaResponse.swift in Sources */,
+				DB5BC5E02B15C09900B653D8 /* PostData.swift in Sources */,
 				DB2E5DCC2B148B0800CC7945 /* ContentView.swift in Sources */,
+				DB2E5DDA2B14918100CC7945 /* CustomCardShape.swift in Sources */,
 				DB2E5DCA2B148B0800CC7945 /* AgendaUsingJSONApp.swift in Sources */,
+				DB91165D2B152940005B6ABD /* Agenda_speakers.swift in Sources */,
+				DB9116612B152940005B6ABD /* Register_links.swift in Sources */,
+				DB2E5DDD2B14ACFD00CC7945 /* MeetView.swift in Sources */,
+				DB02E43A2B14DA4B007C242D /* ViewModel.swift in Sources */,
+				DB91165E2B152940005B6ABD /* Agenda_documents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +373,11 @@
 				DEVELOPMENT_TEAM = DDJKYQ3U34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AgendaUsingJSON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,10 +403,11 @@
 				DEVELOPMENT_TEAM = DDJKYQ3U34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AgendaUsingJSON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -344,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB9116642B1537FB005B6ABD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB9116652B1537FB005B6ABD /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB9116642B1537FB005B6ABD /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB2E5DBE2B148B0800CC7945 /* Project object */;
 }
