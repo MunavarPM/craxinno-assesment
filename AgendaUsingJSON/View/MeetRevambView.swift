@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct MeetRevambView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = DataViewModel()
+    @EnvironmentObject var viewModel: DataViewModel
     let longTextThreshold: Double = 0.75
     let screenWidth = UIScreen.main.bounds.width
     let id: Int
@@ -48,7 +48,7 @@ struct MeetRevambView: View {
             
         }
         .task {
-            viewModel.fetchData()
+           // viewModel.fetchData()
         }
         .ignoresSafeArea()
     }
@@ -65,12 +65,17 @@ struct MeetRevambView: View {
         ZStack(alignment: .topLeading) {
             
             VStack {
-                WebImage(url: URL(string: "\(viewModel.dataArray?.data?.header_img ?? "DP")"))
+                let commonPath = viewModel.dataArray?.imgPath
+                let imgPath = viewModel.dataArray?.data?.header_img
+                
+                let path = commonPath! + imgPath!
+                WebImage(url: URL(string:path))
                     .resizable()
-                    .placeholder(Image("MeetImg"))
+                 //   .placeholder(Image("MeetImg"))
                     .frame(width: screenWidth, height: screenWidth * 0.77)
                     .aspectRatio(1.3, contentMode: .fill)
-                Text("Northwest Florid Reception Sponsored Beggs& Lane, RLLP")
+                Text(viewModel.dataArray?.data?.name ?? "") 
+                
                     .font(.custom("Poppins-Medium", size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(.black)

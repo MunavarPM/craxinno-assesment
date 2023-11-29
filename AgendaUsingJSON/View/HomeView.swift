@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = DataViewModel()
+    @EnvironmentObject var viewModel: DataViewModel
     var body: some View {
         NavigationStack {
             ZStack {
@@ -30,11 +30,25 @@ struct HomeView: View {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 10) {
                             
-                            ForEach(0 ..< 10) { i in
-                                VStack(alignment: .leading) {
-                                    MeetListView(index: i)
-                                        .frame(height: 185)
+            
+                            
+//                            ForEach(0 ..< 10) { i in
+//                                VStack(alignment: .leading) {
+//                                    MeetListView(index: i)
+//                                        .frame(height: 185)
+//                                }
+//                            }
+                            
+                            
+                            if let length = viewModel.length{
+                                ForEach(0 ..< (viewModel.length ?? 2)) { i in
+                                    VStack(alignment: .leading) {
+                                        MeetListView(index: i)
+                                            .frame(height: 185)
+                                    }
                                 }
+                            }else{
+                                ProgressView().onAppear { viewModel.postData() }
                             }
                         }
                     }
@@ -72,10 +86,12 @@ struct HomeView: View {
 
 struct MeetListView: View {
     @State private var contentIsLong = false
-    @StateObject var viewModel = DataViewModel()
+    @EnvironmentObject var viewModel: DataViewModel
+    
     let index: Int
     var body: some View {
-        NavigationLink(destination: MeetView()){
+        let id = viewModel.agendas?.data[index].id
+        NavigationLink(destination: MeetView(id: id ?? 0)){
             GeometryReader { geo in
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {

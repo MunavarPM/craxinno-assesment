@@ -10,84 +10,95 @@ import SDWebImageSwiftUI
 
 struct MeetView: View {
     @Environment (\.dismiss) var dismiss
-    @StateObject var viewModel = DataViewModel()
+    @EnvironmentObject var viewModel: DataViewModel
+    let id: Int
+    
+    
     let longTextThreshold: Double = 0.75
     var body: some View {
-        NavigationStack {
+        
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 0) {
+                    if viewModel.fetchData(id: id){
                     
-                    MeetRevambView(id: 25860)
-                    
-                    VStack(alignment: .leading, spacing: 15) {
-                        HStack {
-                            CustomBF(text: "Enter Code", width: 170, action: {
-                                
-                                viewModel.postData()
-                                
-                            })
-                            Spacer()
-                            CustomBF(text: "Take Survey", width: 170, action: {})
-                        }
+                        MeetRevambView(id: id)
                         
-                        Text("Speaker")
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .padding(.top)
-                        
-                        ForEach(viewModel.dataArray?.data?.agenda_speakers ?? [], id: \.self) { speaker in
-                            CustomSpeakersView(image: speaker.image, name: speaker.name, domain: speaker.company_name)
-                        }
-                        
-                        Text("Registration Link")
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .padding(.top)
-                        CustomBF(text: viewModel.dataArray?.data?.register_links?[0].register_text ?? "", width: 300, action: {
-                            if let urlString = viewModel.dataArray?.data?.register_links?[0].register_link,
-                               let url = URL(string: urlString) {
-                                UIApplication.shared.open(url)
+                        VStack(alignment: .leading, spacing: 15) {
+                            HStack {
+                                CustomBF(text: "Enter Code", width: 170, action: {
+                                    
+                                    viewModel.postData()
+                                    
+                                })
+                                Spacer()
+                                CustomBF(text: "Take Survey", width: 170, action: {})
                             }
-                        })
-                        
-                        .padding(.horizontal, 30)
-                        Text("Registration Link")
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .padding(.top)
-                        CustomBF(text: viewModel.dataArray?.data?.agenda_documents?[0].document_name ??  "", width: 300, action: {
-                            if let urlString = viewModel.dataArray?.data?.agenda_documents?[0].document_file,
-                               let url = URL(string: urlString) {
-                                UIApplication.shared.open(url)
-                            }
-                        }
-                        )
-                        .padding(.horizontal, 30)
-                        
-                        Text("Discription")
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .padding(.top)
-                        
-                        Text("but if you can’t wait that long, a free demo, which is a prologue for the main story, is available right now. It takes place a few weeks before the events of Alone in the Dark and doesn’t have any of the combat of the main game, but it should give you an interactive taste of what to expect. Here are all the demo links:")
-                        
-                        
-                        Text("Sponser Name")
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .padding(.top)
-                        
-                        
-                        HStack(alignment: .center) {
-                            WebImage(url: URL(string: "\(viewModel.dataArray?.data?.sponsor_img ?? "Apple")"))
-                                .resizable()
-                                .placeholder(Image("Apple"))
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
-                                .frame(width: 50, height: 50)
                             
-                            Text(viewModel.dataArray?.data?.sponsor_name ?? "Apple Co.")
-                                .font(.custom("Poppins-Medium", size: 35).bold())
+                            Text("Speaker")
+                                .font(.custom("Poppins-Medium", size: 18))
+                                .padding(.top)
+                            
+                            ForEach(viewModel.dataArray?.data?.agenda_speakers ?? [], id: \.self) { speaker in
+                                CustomSpeakersView(image: speaker.image, name: speaker.name, domain: speaker.company_name)
+                            }
+                            
+                            Text("Registration Link")
+                                .font(.custom("Poppins-Medium", size: 18))
+                                .padding(.top)
+                            CustomBF(text: viewModel.dataArray?.data?.register_links?[0].register_text ?? "", width: 300, action: {
+                                if let urlString = viewModel.dataArray?.data?.register_links?[0].register_link,
+                                   let url = URL(string: urlString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            })
+                            
+                            .padding(.horizontal, 30)
+                            Text("Registration Link")
+                                .font(.custom("Poppins-Medium", size: 18))
+                                .padding(.top)
+                            CustomBF(text: viewModel.dataArray?.data?.agenda_documents?[0].document_name ??  "", width: 300, action: {
+                                if let urlString = viewModel.dataArray?.data?.agenda_documents?[0].document_file,
+                                   let url = URL(string: urlString) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                            )
+                            .padding(.horizontal, 30)
+                            
+                            Text("Discription")
+                                .font(.custom("Poppins-Medium", size: 18))
+                                .padding(.top)
+                            
+                            Text("but if you can’t wait that long, a free demo, which is a prologue for the main story, is available right now. It takes place a few weeks before the events of Alone in the Dark and doesn’t have any of the combat of the main game, but it should give you an interactive taste of what to expect. Here are all the demo links:")
+                            
+                            
+                            Text("Sponser Name")
+                                .font(.custom("Poppins-Medium", size: 18))
+                                .padding(.top)
+                            
+                            
+                            HStack(alignment: .center) {
+                                WebImage(url: URL(string: "\(viewModel.dataArray?.data?.sponsor_img ?? "Apple")"))
+                                    .resizable()
+                                    .placeholder(Image("Apple"))
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .frame(width: 50, height: 50)
+                                
+                                Text(viewModel.dataArray?.data?.sponsor_name ?? "Apple Co.")
+                                    .font(.custom("Poppins-Medium", size: 35).bold())
+                            }
+                            .padding(.horizontal, 90)
+                            
                         }
-                        .padding(.horizontal, 90)
-                        
+                        .padding(.horizontal)
+                    }else{
+                        ProgressView()
+                                            .onAppear {
+                                                // Fetch data when the view appears
+                                                viewModel.fetchData(id: id)
+                                            }
                     }
-                    .padding(.horizontal)
                     
                 }
                 
@@ -96,8 +107,7 @@ struct MeetView: View {
             .onAppear {
 //                print(viewModel.dataArray?.data?.register_links![0].register_link ?? "")
             }
-        }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
     }
     private var textIsLong: Bool {
         let textLength = "Northwest Florid Reception Sponsored by Beggs & Lane RLLP".count
@@ -107,7 +117,7 @@ struct MeetView: View {
 }
 
 #Preview {
-    MeetView()
+    MeetView(id: 23445)
 }
 
 struct CustomBF: View {

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AgendaUsingJSONApp: App {
+    @StateObject var viewModel = DataViewModel()
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(viewModel)
         }
     }
 }
